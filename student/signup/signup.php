@@ -27,7 +27,6 @@
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $insert_sql = "INSERT INTO students (name, email, password) VALUES ('$name', '$email', '$hashed_password')";
             if (mysqli_query($conn, $insert_sql)) {
-                // echo "New student registered successfully";
                 header("Location: ../../student/login/login.php");
                 exit();
             } else {
