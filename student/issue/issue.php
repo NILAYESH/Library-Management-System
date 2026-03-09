@@ -102,6 +102,7 @@
 ?>
 
 <?php
+    // Handle search functionality
     if(isset($_POST['search'])) {
         $searchTerm = mysqli_real_escape_string($conn, $_POST['q']);
         $searchSql = "SELECT ib.id AS issue_id,
