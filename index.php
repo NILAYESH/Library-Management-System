@@ -268,9 +268,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
 
         .book-card {
             min-width: 150px;
-            width: 150px;
+            width: 200px;
             display: flex;
             flex-direction: column;
+            padding: .75rem;
+            background: var(--card-bg);
+            border-radius: 5px;
+        }
+
+        .book-title{
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary-color);
         }
 
         .book-cover {
@@ -281,6 +290,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 10px;
             border: 1px solid #e0dccc;
+        }
+
+        .book-author {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+
         }
 
         /* ACTION BUTTONS */
@@ -460,7 +476,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
                             <?php foreach ($books as $book): ?>
                             <div class="book-card">
                                 <img src="<?php echo htmlspecialchars($book['image']); ?>" alt="<?php echo htmlspecialchars($book['title']); ?>" class="book-cover">
-                                
+                                <p class="book-title"><?php echo htmlspecialchars($book['title']); ?></p>
+                                <p class="book-author">by <?php echo htmlspecialchars($book['author']); ?></p>
                                 <a href="book/book.php?id=<?php echo urlencode($book['id']); ?>&category=<?php echo urlencode($categoryName); ?>" style="text-decoration: none; color: inherit;">
                                     <button class="action-btn <?php echo htmlspecialchars($book['btn_class']); ?>">
                                     <?php echo htmlspecialchars($book['status']); ?>
